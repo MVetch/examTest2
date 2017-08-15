@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Простой компонент");
 		"CACHE_TIME" => "36000000",
 		"CAT_IBLOCK_ID" => "2",
 		"NEWS_IBLOCK_ID" => "1",
-		"NEWS_PROPERTY_ID" => "7",
+		"NEWS_PROPERTY_CODE" => "NEWS"
 	),
 	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

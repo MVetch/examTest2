@@ -3,12 +3,6 @@
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
 <?endif;?>
-<?
-if($arParams['SPEC_DATE'] == "Y"){
-	$APPLICATION->SetPageProperty("specialdate", $arResult["ITEMS"][0]["DISPLAY_ACTIVE_FROM"]);
-	$APPLICATION->ShowProperty("specialdate", $arResult["ITEMS"][0]["DISPLAY_ACTIVE_FROM"]);
-}
-?>
 <?foreach($arResult["ITEMS"] as $arItem):?>
 	<?
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));

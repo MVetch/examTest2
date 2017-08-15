@@ -23,10 +23,4 @@ $arTemplateParameters = array(
 		"DEFAULT" => "Y",
 	),
 );
-
-$arTemplateParameters["T_IBLOCK_DESC_NEWS_SPEC_DATE"] = array(
-	"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_SPEC_DATE"),
-	"TYPE" => "CHECKBOX",
-	"DEFAULT" =>"N"
-);
 ?>

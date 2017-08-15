@@ -25,6 +25,16 @@ $arTemplateParameters = array(
 		"DEFAULT" =>"N",
 		"REFRESH"=> "Y",
 	),
+	"MY_PARAM" => array(
+		"NAME" => GetMessage("MY_PARAM"),
+		"TYPE" => "STRING",
+		"DEFAULT" =>""
+	),
+	"SPEC_DATE" => array(
+		"NAME" => GetMessage("SPEC_DATE"),
+		"TYPE" => "CHECKBOX",
+		"DEFAULT" =>"N",
+	),
 );
 
 if ($arCurrentValues["USE_SHARE"] == "Y")

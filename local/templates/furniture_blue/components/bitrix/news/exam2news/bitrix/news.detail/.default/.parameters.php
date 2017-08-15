@@ -30,6 +30,11 @@ $arTemplateParameters = array(
 		"DEFAULT" =>"N",
 		"REFRESH"=> "Y",
 	),	
+	"MY_PARAM" => array(
+		"NAME" => GetMessage("MY_PARAM"),
+		"TYPE" => "STRING",
+		"DEFAULT" =>""
+	),
 );
 
 if ($arCurrentValues["USE_SHARE"] == "Y")

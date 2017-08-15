@@ -17,10 +17,10 @@ $arComponentParameters = array(
 			"TYPE" => "STRING",
 			"DEFAULT" => 1
 		),
-		"NEWS_PROPERTY_ID" => Array(
+		"NEWS_PROPERTY_CODE" => Array(
 			"NAME" => "Код пользовательского свойства разделов каталога, в котором хранится привязка к новостям",
 			"TYPE" => "STRING",
-			"DEFAULT" => 7
+			"DEFAULT" => "NEWS_LINK"
 		),
 		"CACHE_TIME"  =>  Array("DEFAULT"=>36000000),
 	),

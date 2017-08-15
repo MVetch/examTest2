@@ -12,18 +12,12 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $this->AddIncludeAreaIcon(
     array(
         'URL'   => "/bitrix/admin/iblock_section_admin.php?IBLOCK_ID=".$arParams['CAT_IBLOCK_ID']."&type=products&lang=ru&find_section_section=0",
-        'SRC'   => $this->GetPath().'/images/znak.gif',
-        'TITLE' => "ИБ в админке"
+        'TITLE' => "ИБ в админке",
+        "IN_PARAMS_MENU" => true
     )
 );
 
-$obCache = new CPageCache; 
-
-$life_time = 30*60; 
-
-$cache_id = "simpleComponent"; 
-
-if($obCache->StartDataCache($life_time, $cache_id, "/")):
+if($this->StartResultCache()):
 
 	$cnt = 0;
 
@@ -31,7 +25,7 @@ if($obCache->StartDataCache($life_time, $cache_id, "/")):
 		array(),
 		array("IBLOCK_ID" => $arParams['CAT_IBLOCK_ID']),
 		false,
-		array("ID", "NAME", "UF_NEWS_LINK"),
+		array("ID", "NAME", "UF_".$arParams['NEWS_PROPERTY_CODE']),
 		array()
 	);
 
@@ -39,7 +33,7 @@ if($obCache->StartDataCache($life_time, $cache_id, "/")):
 		$sections[$list['ID']] = array(
 			"ID" => $list["ID"],
 			"NAME" => $list["NAME"],
-			"UF_NEWS_LINK" => unserialize($list['UF_NEWS_LINK'])
+			"UF_".$arParams['NEWS_PROPERTY_CODE'] => unserialize($list["UF_".$arParams['NEWS_PROPERTY_CODE']])
 		);
 	}
 
@@ -66,7 +60,7 @@ if($obCache->StartDataCache($life_time, $cache_id, "/")):
 
 	$ids = array();
 	foreach ($sections as $arSection) {
-		foreach ($arSection['UF_NEWS_LINK'] as $id) {
+		foreach ($arSection["UF_".$arParams['NEWS_PROPERTY_CODE']] as $id) {
 			if(!in_array($id, $ids)){
 				$ids[] = $id;
 			}
@@ -94,5 +88,4 @@ if($obCache->StartDataCache($life_time, $cache_id, "/")):
 	}
 	$APPLICATION->SetTitle("В каталоге товаров представлено товаров: ".$cnt);
 	$this->includeComponentTemplate();
-    $obCache->EndDataCache(); 
 endif;
